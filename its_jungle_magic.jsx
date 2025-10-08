@@ -172,9 +172,9 @@ function App() {
       <header className="flex justify-between items-center p-6 shadow-md sticky top-0 bg-white z-50">
         <div className="text-2xl font-bold">Jungle Magic</div>
         <nav className="flex space-x-8">
-          <button className="text-gray-900 hover:text-gray-600">Home</button>
-          <button className="text-gray-900 hover:text-gray-600">Collections</button>
-          <button className="text-gray-900 hover:text-gray-600">Cart ({cart.length})</button>
+          <button className="text-gray-700 hover:text-gray-600">Home</button>
+          <button className="text-gray-700 hover:text-gray-600">Collections</button>
+          <button className="text-gray-700 hover:text-gray-600">Cart ({cart.length})</button>
         </nav>
       </header>
       
