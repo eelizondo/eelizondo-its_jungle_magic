@@ -93,6 +93,32 @@ function Navbar() {
   );
 }
 
+// Collections Page Component
+function CollectionsPage() {
+  const collections = [
+    { name: "Stickers", image: "https://via.placeholder.com/300x200/e2e8f0/64748b?text=Stickers" },
+    { name: "T-Shirt", image: "https://via.placeholder.com/300x200/e2e8f0/64748b?text=T-Shirt" },
+    { name: "Mugs", image: "https://via.placeholder.com/300x200/e2e8f0/64748b?text=Mugs" },
+    { name: "Keychains", image: "https://via.placeholder.com/300x200/e2e8f0/64748b?text=Keychains" },
+  ];
+
+  return (
+    <main className="py-16 px-6">
+      <h2 className="text-3xl font-bold mb-10 text-center text-gray-900">Shop by Collection</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {collections.map((col, i) => (
+          <div key={i} className="rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white">
+            <img src={col.image} alt={col.name} className="w-full h-48 object-cover" />
+            <div className="p-4 text-center">
+              <h3 className="text-lg font-medium text-gray-900">{col.name}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+}
+
 function App() {
   const [cart, setCart] = useState([]);
   const [currentPage, setCurrentPage] = useState('home'); // Track current page
@@ -139,14 +165,7 @@ function App() {
       {/* Conditional Page Rendering */}
       {currentPage === 'home' && <HomePage addToCart={addToCart} setCurrentPage={setCurrentPage} />}
       {currentPage === 'cart' && <CartPage cart={cart} />}
-      {currentPage === 'collections' && (
-        <main className="py-16 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8">Collections</h2>
-            <p className="text-gray-600">Collections page coming soon...</p>
-          </div>
-        </main>
-      )}
+      {currentPage === 'collections' && <CollectionsPage />}
       
       <footer className="bg-gray-100 py-10 px-6 text-center text-sm text-gray-600">
         <p>&copy; 2025 Jungle Magic. All rights reserved.</p>
