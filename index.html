@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jungle Magic</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- React and ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- React Router -->
+    <script crossorigin src="https://unpkg.com/react-router-dom@6/dist/umd/react-router-dom.development.js"></script>
+    
+    <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Load your React component from the JSX file -->
+    <script type="text/babel" src="its_jungle_magic.jsx"></script>
+    
+    <!-- Render the app after everything is loaded -->
+    <script type="text/babel">
+      // Wait for all dependencies to load
+      setTimeout(() => {
+        console.log('React:', typeof React);
+        console.log('ReactDOM:', typeof ReactDOM);
+        console.log('ReactRouterDOM:', typeof ReactRouterDOM);
+        console.log('App:', typeof App);
+        
+        if (typeof App !== 'undefined') {
+          const { createRoot } = ReactDOM;
+          const root = createRoot(document.getElementById('root'));
+          root.render(<App />);
+        } else {
+          console.error('App component not found');
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
+
+
+
