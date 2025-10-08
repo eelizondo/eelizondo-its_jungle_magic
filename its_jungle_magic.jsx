@@ -153,6 +153,7 @@ function Footer() {
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [currentPage, setCurrentPage] = useState('home'); // Track current page
 
   const addToCart = (item) => {
     setCart((prev) => {
@@ -172,9 +173,24 @@ function App() {
       <header className="flex justify-between items-center p-6 shadow-md sticky top-0 bg-white z-50">
         <div className="text-2xl font-bold">Jungle Magic</div>
         <nav className="flex space-x-8">
-          <button className="text-gray-700 hover:text-gray-600">Home</button>
-          <button className="text-gray-700 hover:text-gray-600">Collections</button>
-          <button className="text-gray-700 hover:text-gray-600">Cart ({cart.length})</button>
+          <button 
+            onClick={() => setCurrentPage('home')}
+            className={`hover:text-gray-600 ${currentPage === 'home' ? 'text-gray-900 font-medium' : 'text-gray-700'}`}
+          >
+            Home
+          </button>
+          <button 
+            onClick={() => setCurrentPage('collections')}
+            className={`hover:text-gray-600 ${currentPage === 'collections' ? 'text-gray-900 font-medium' : 'text-gray-700'}`}
+          >
+            Collections
+          </button>
+          <button 
+            onClick={() => setCurrentPage('cart')}
+            className={`hover:text-gray-600 ${currentPage === 'cart' ? 'text-gray-900 font-medium' : 'text-gray-700'}`}
+          >
+            Cart ({cart.length})
+          </button>
         </nav>
       </header>
       
@@ -184,7 +200,12 @@ function App() {
           <p className="text-lg md:text-xl mb-6 max-w-xl whitespace-nowrap">
             Explore our curated collection of lifestyle accessories and fun finds.
           </p>
-          <button className="px-6 py-3 bg-black text-white rounded-2xl text-lg">Shop Now</button>
+          <button 
+            onClick={() => setCurrentPage('collections')}
+            className="px-6 py-3 bg-black text-white rounded-2xl text-lg hover:bg-gray-800"
+          >
+            Shop Now
+          </button>
         </section>
 
         <section className="py-16 px-6">
